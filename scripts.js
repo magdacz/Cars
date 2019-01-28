@@ -43,13 +43,13 @@ Car.prototype.carUp = function(distance) {
     })
 }
     
-    Car.prototype.carDown = function(distance) {
-      this.y += distance;
-      this.carElement.css({
-          left: this.x,
-          top: this.y
-      })
-    } 
+Car.prototype.carDown = function(distance) {
+    this.y += distance;
+    this.carElement.css({
+        left: this.x,
+        top: this.y
+    })
+} 
     
 
 var volvo = new Car(100, 200);
@@ -57,3 +57,20 @@ var tesla = new Car(20, 20);
 
 //volvo.carDown(40);
 //tesla.carRight(200);
+
+var counter = 0;
+var meta = 300;
+
+function carRaicing() {
+    counter++;
+    
+    volvo.carRight(Math.random() * 5);
+    tesla.carRight(Math.random() * 5);
+    
+    if(meta < counter) {
+        clearInterval(carStop)
+    }
+    
+}
+
+var carStop = setInterval(carRaicing, 20);

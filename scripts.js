@@ -11,7 +11,7 @@ Car.prototype.showCar = function() {
     this.carElement = $(carHtml);
     
     this.carElement.css({
-        position: "acsolute",
+        position: "absolute",
         left: this.x,
         top: this.y
     })
@@ -19,4 +19,41 @@ Car.prototype.showCar = function() {
     $('body').append(this.carElement)
 }
 
-var volvo = new Car(100, 200)
+Car.prototype.carRight = function(distance) {
+    this.x += distance;
+    this.carElement.css({
+        left: this.x,
+        top: this.y
+    })
+}
+
+Car.prototype.carLeft = function(distance) {
+    this.x -= distance;
+    this.carElement.css({
+        left: this.x,
+        top: this.y
+    })
+}
+
+Car.prototype.carUp = function(distance) {
+    this.y -= distance;
+    this.carElement.css({
+        left: this.x,
+        top: this.y
+    })
+}
+    
+    Car.prototype.carDown = function(distance) {
+      this.y += distance;
+      this.carElement.css({
+          left: this.x,
+          top: this.y
+      })
+    } 
+    
+
+var volvo = new Car(100, 200);
+var tesla = new Car(20, 20);
+
+//volvo.carDown(40);
+//tesla.carRight(200);
